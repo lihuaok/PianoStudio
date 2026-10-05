@@ -1,0 +1,28 @@
+{
+  "name": "piano-studio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Piano Studio · 世界级钢琴教学软件（课程体系 / 互动乐理 / 实时弹奏评测 / 进度同步）",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.json --noEmit && vite build",
+    "preview": "vite preview --port 4173",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "server": "node server/index.mjs",
+    "start": "npm run build && node server/index.mjs",
+    "check:tone": "node tools/autoplay-tone-check.mjs",
+    "check:score": "node tools/diag-score.mjs",
+    "calibrate:samples": "node tools/sample-calibrate.mjs"
+  },  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.0.4",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.9"
+  }
+}

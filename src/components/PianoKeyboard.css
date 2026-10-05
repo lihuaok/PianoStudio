@@ -1,0 +1,251 @@
+/*!
+ * Copyright (c) 2026 LIHUA. All rights reserved.
+ * 版权所有 (C) 2026 LIHUA，保留所有权利。
+ */
+
+/* PianoKeyboard.css — 虚拟钢琴键盘 */
+
+.piano-keyboard-wrap {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--r-md);
+  background: var(--bg-0);
+  padding: 0;
+  box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+.piano-keyboard {
+  position: relative;
+  width: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  cursor: pointer;
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+
+.piano-keyboard.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+
+/* ── 键的基础 ───────────────────────────────────────────────────────────── */
+.pk-key {
+  position: absolute;
+  top: 0;
+  transition: none;
+  will-change: transform;
+}
+
+.pk-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 5px;
+  pointer-events: none;
+}
+
+/* ── 白键 ───────────────────────────────────────────────────────────────── */
+.pk-white {
+  background: linear-gradient(180deg, #fdfcf8 0%, #f4f2ec 62%, #e8e5dc 100%);
+  border-right: 1px solid #b9b5a8;
+  border-radius: 0 0 5px 5px;
+  box-shadow:
+    inset 0 -7px 10px rgba(0, 0, 0, 0.09),
+    0 3px 5px rgba(0, 0, 0, 0.28);
+  z-index: 1;
+}
+
+.pk-white:last-of-type {
+  border-right: none;
+}
+
+/* 白键顶部的深色立体感 */
+.pk-white::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 11%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.11), transparent);
+  pointer-events: none;
+}
+
+.pk-white.is-pressed,
+.pk-white.is-pressed:active {
+  background: linear-gradient(180deg, #ffe9b8 0%, #f5cf76 60%, #e0a92f 100%);
+  box-shadow:
+    inset 0 4px 10px rgba(120, 80, 0, 0.28),
+    0 1px 2px rgba(0, 0, 0, 0.3);
+  transform: translateY(1.5px);
+}
+
+.pk-white.is-target {
+  background: linear-gradient(180deg, #fdfcf8 0%, #f7f1dd 62%, #ece5cf 100%);
+  box-shadow:
+    inset 0 -7px 10px rgba(0, 0, 0, 0.08),
+    inset 0 2px 0 rgba(240, 199, 102, 0.5),
+    0 3px 5px rgba(0, 0, 0, 0.28);
+}
+
+.pk-white.is-current {
+  background: linear-gradient(180deg, #fff2cf 0%, #ffdf9a 60%, #f0c766 100%);
+  box-shadow:
+    inset 0 -7px 10px rgba(120, 80, 0, 0.18),
+    0 0 0 2px rgba(240, 199, 102, 0.55),
+    0 4px 14px rgba(240, 199, 102, 0.4);
+  animation: pkPulse 1s ease-in-out infinite;
+}
+
+@keyframes pkPulse {
+  0%, 100% { box-shadow: inset 0 -7px 10px rgba(120,80,0,.18), 0 0 0 2px rgba(240,199,102,.5), 0 4px 14px rgba(240,199,102,.32); }
+  50% { box-shadow: inset 0 -7px 10px rgba(120,80,0,.18), 0 0 0 3px rgba(240,199,102,.75), 0 6px 22px rgba(240,199,102,.55); }
+}
+
+.pk-white.is-correct {
+  background: linear-gradient(180deg, #e6fff2 0%, #c7f5e0 62%, #a8ecd0 100%);
+}
+
+.pk-white.is-wrong {
+  background: linear-gradient(180deg, #ffe9ea 0%, #ffd0d2 62%, #f8b4b7 100%);
+  animation: pkShake 0.32s ease;
+}
+
+@keyframes pkShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+}
+
+/* ── 黑键 ───────────────────────────────────────────────────────────────── */
+.pk-black {
+  background: linear-gradient(180deg, #2c3040 0%, #171a26 42%, #0c0e16 100%);
+  border-radius: 0 0 4px 4px;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.62),
+    inset 0 -3px 5px rgba(255, 255, 255, 0.09),
+    inset 0 2px 3px rgba(255, 255, 255, 0.05);
+  z-index: 3;
+}
+
+.pk-black::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  border-radius: 0 0 2px 2px;
+}
+
+.pk-black.is-pressed,
+.pk-black.is-pressed:active {
+  background: linear-gradient(180deg, #8a6a1e 0%, #6b4f14 45%, #4a3609 100%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), inset 0 -2px 4px rgba(255, 220, 140, 0.22);
+  transform: translateY(1.5px);
+}
+
+.pk-black.is-current {
+  background: linear-gradient(180deg, #a87f24 0%, #7d5c17 45%, #554008 100%);
+  box-shadow: 0 0 0 2px rgba(240, 199, 102, 0.75), 0 4px 16px rgba(240, 199, 102, 0.5);
+  animation: pkPulseBlack 1s ease-in-out infinite;
+}
+
+@keyframes pkPulseBlack {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(240,199,102,.55), 0 4px 14px rgba(240,199,102,.35); }
+  50% { box-shadow: 0 0 0 3px rgba(240,199,102,.85), 0 6px 24px rgba(240,199,102,.6); }
+}
+
+.pk-black.is-correct {
+  background: linear-gradient(180deg, #2e6a4f 0%, #1c4a35 45%, #123326 100%);
+}
+
+.pk-black.is-wrong {
+  background: linear-gradient(180deg, #7a2f34 0%, #5a2024 45%, #3d1518 100%);
+  animation: pkShake 0.32s ease;
+}
+
+.pk-black.is-target {
+  background: linear-gradient(180deg, #3a3550 0%, #221f33 45%, #15131f 100%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.62), inset 0 0 0 1px rgba(240, 199, 102, 0.35);
+}
+
+/* ── 标签 ───────────────────────────────────────────────────────────────── */
+.pk-labels {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  line-height: 1;
+}
+
+.pk-finger {
+  display: inline-grid;
+  place-items: center;
+  min-width: 15px;
+  height: 15px;
+  padding: 0 3px;
+  border-radius: var(--r-full);
+  background: var(--amber-4);
+  color: #1a1405;
+  font-size: 10px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+.pk-finger-black {
+  position: absolute;
+  top: 5px;
+  background: var(--amber-2);
+}
+
+.pk-name {
+  font-size: 9px;
+  color: #8b8574;
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+
+/* ── 电脑键盘键位提示（键帽） ─────────────────────────────────────────── */
+.pk-keycap {
+  display: inline-grid;
+  place-items: center;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  margin-bottom: 2px;
+  border-radius: 4px;
+  background: rgba(24, 28, 44, 0.07);
+  border: 1px solid rgba(24, 28, 44, 0.25);
+  box-shadow: 0 1.5px 0 rgba(24, 28, 44, 0.28);
+  color: #6b6450;
+  font-size: 9.5px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  line-height: 1;
+}
+
+.pk-keycap-black {
+  position: absolute;
+  top: 4px;
+  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ece5cf;
+  box-shadow: 0 1.5px 0 rgba(0, 0, 0, 0.55);
+}
+
+.pk-octave {
+  position: absolute;
+  bottom: 3px;
+  font-size: 8.5px;
+  color: #a8a293;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}

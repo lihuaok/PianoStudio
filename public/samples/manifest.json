@@ -1,0 +1,17 @@
+{
+  "name": "Salamander Grand Piano V3",
+  "license": "CC BY 3.0 — Alexander Holm（采样源：@audio-samples/piano-mp3）",
+  "baseUrl": "samples/",
+  "ext": "mp3",
+  "layout": "sparse",
+  "noteName": "scientific",
+  "anchorStart": 21,
+  "anchorStep": 3,
+  "release": 0.24,
+  "pedalTail": 5.5,
+  "layers": [
+    { "max": 0.36, "suffix": "v3", "gain": 2.083, "label": "弱奏 p" },
+    { "max": 0.68, "suffix": "v9", "gain": 1.0, "label": "中奏 mf" },
+    { "max": 1.01, "suffix": "v15", "gain": 0.481, "label": "强奏 f" }
+  ]
+}

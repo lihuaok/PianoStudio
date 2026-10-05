@@ -1,0 +1,285 @@
+/*!
+ * Copyright (c) 2026 LIHUA. All rights reserved.
+ * 版权所有 (C) 2026 LIHUA，保留所有权利。
+ */
+
+/* ProgressPage.css */
+
+.prog-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+/* ── 统计卡 ─────────────────────────────────────────────────────────────── */
+.pg-stats {
+  grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+  gap: var(--sp-4);
+}
+
+.big-stat {
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  position: relative;
+  overflow: hidden;
+}
+.bs-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--r-sm);
+  display: grid;
+  place-items: center;
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+.bs-value {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+.bs-label {
+  font-size: 12.5px;
+  color: var(--text-2);
+  font-weight: 600;
+}
+.bs-sub {
+  color: var(--text-4);
+}
+
+/* ── 行布局 ─────────────────────────────────────────────────────────────── */
+.pg-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--sp-4);
+  align-items: start;
+}
+
+/* ── 趋势图 ─────────────────────────────────────────────────────────────── */
+.trend-chart {
+  position: relative;
+}
+.trend-svg {
+  width: 100%;
+  height: 150px;
+  overflow: visible;
+}
+.trend-grid {
+  stroke: rgba(255, 255, 255, 0.06);
+  stroke-width: 0.3;
+  vector-effect: non-scaling-stroke;
+}
+.trend-line {
+  fill: none;
+  stroke: var(--amber-3);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 4px rgba(240, 199, 102, 0.4));
+}
+.trend-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  color: var(--text-4);
+}
+.trend-legend {
+  display: flex;
+  align-items: center;
+  margin-top: var(--sp-3);
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--glass-border);
+  color: var(--text-3);
+}
+
+.heatmap-lg {
+  display: grid;
+  grid-template-rows: repeat(7, 1fr);
+  grid-auto-flow: column;
+  gap: 3.5px;
+}
+
+/* ── 成就 ───────────────────────────────────────────────────────────────── */
+.ach-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+  gap: var(--sp-3);
+}
+.ach {
+  padding: var(--sp-3);
+  border-radius: var(--r-md);
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--glass-border);
+  opacity: 0.45;
+  transition: all var(--dur-base) var(--ease-out);
+}
+.ach.is-unlocked {
+  opacity: 1;
+  background: linear-gradient(140deg, rgba(240, 199, 102, 0.12), rgba(240, 199, 102, 0.02));
+  border-color: rgba(240, 199, 102, 0.34);
+}
+.ach-icon {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+.ach-name {
+  font-size: 13px;
+  font-weight: 650;
+}
+.ach-desc {
+  color: var(--text-4);
+  margin: 2px 0 6px;
+}
+.ach-progress {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.ach-progress .bar {
+  flex: 1;
+  height: 4px;
+}
+
+/* ── 章节表 ─────────────────────────────────────────────────────────────── */
+.sec-table {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.sec-row {
+  display: grid;
+  grid-template-columns: 34px 1fr 82px 1.4fr 46px 48px;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 8px var(--sp-2);
+  border-radius: var(--r-sm);
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.sec-row:hover {
+  background: var(--glass-bg);
+}
+.sr-form {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--amber-4);
+}
+.sr-name {
+  font-size: 13px;
+  font-weight: 600;
+}
+.sr-range {
+  color: var(--text-4);
+}
+.sr-score {
+  font-weight: 700;
+  text-align: right;
+}
+.sr-attempts {
+  color: var(--text-4);
+  text-align: right;
+}
+
+/* ── 课程行 ─────────────────────────────────────────────────────────────── */
+.lvl-row {
+  display: grid;
+  grid-template-columns: 46px 148px 1fr;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.lvl-row:last-child { border-bottom: none; }
+.lvl-tag {
+  font-size: 11px;
+  font-weight: 800;
+  text-align: center;
+  padding: 3px 0;
+  border-radius: var(--r-xs);
+}
+.lvl-name {
+  font-size: 13px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.lvl-lessons {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.lvl-pill {
+  padding: 2px 8px;
+  border-radius: var(--r-full);
+  font-size: 10.5px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  color: var(--text-4);
+}
+.lvl-pill.is-started {
+  color: var(--text-2);
+  background: rgba(255, 255, 255, 0.07);
+}
+.lvl-pill.is-passed {
+  color: var(--amber-2);
+  background: rgba(240, 199, 102, 0.12);
+}
+
+/* ── 练习记录 ───────────────────────────────────────────────────────────── */
+.session-list {
+  display: flex;
+  flex-direction: column;
+}
+.session-row {
+  display: grid;
+  grid-template-columns: 54px 1fr auto auto auto 46px;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 9px var(--sp-5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.session-row:hover {
+  background: var(--glass-bg);
+}
+.session-row:last-child { border-bottom: none; }
+.sr2-date {
+  color: var(--text-3);
+  font-weight: 600;
+}
+.sr2-time {
+  color: var(--text-4);
+  font-weight: 400;
+  font-family: var(--font-mono);
+}
+.sr2-name {
+  font-size: 13px;
+  font-weight: 600;
+}
+.sr2-hand,
+.sr2-bpm,
+.sr2-dur {
+  color: var(--text-4);
+}
+.sr2-score {
+  font-weight: 700;
+  text-align: right;
+  font-size: 14px;
+}
+
+/* ── 响应式 ─────────────────────────────────────────────────────────────── */
+@media (max-width: 1000px) {
+  .pg-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 800px) {
+  .sec-row { grid-template-columns: 30px 1fr 60px; }
+  .sr-bar, .sr-attempts { display: none; }
+  .lvl-row { grid-template-columns: 42px 1fr; }
+  .lvl-lessons { grid-column: 1 / -1; }
+  .session-row { grid-template-columns: 48px 1fr 44px; }
+  .sr2-hand, .sr2-bpm, .sr2-dur { display: none; }
+}

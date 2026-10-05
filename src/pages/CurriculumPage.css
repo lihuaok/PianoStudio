@@ -1,0 +1,468 @@
+/*!
+ * Copyright (c) 2026 LIHUA. All rights reserved.
+ * 版权所有 (C) 2026 LIHUA，保留所有权利。
+ */
+
+/* CurriculumPage.css */
+
+.curr-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+/* ── 级别导航 ───────────────────────────────────────────────────────────── */
+.level-bar {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--sp-2);
+}
+
+.level-tab {
+  padding: var(--sp-3);
+  border-radius: var(--r-md);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  text-align: left;
+  transition: all var(--dur-base) var(--ease-out);
+}
+.level-tab:hover {
+  background: var(--glass-bg-hover);
+  transform: translateY(-2px);
+}
+.level-tab.is-active {
+  background: color-mix(in srgb, var(--lv-color) 14%, transparent);
+  border-color: color-mix(in srgb, var(--lv-color) 45%, transparent);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--lv-color) 18%, transparent);
+}
+
+.lt-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.lt-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--lv-color);
+  letter-spacing: 0.06em;
+}
+.lt-done {
+  color: var(--success);
+  font-size: 12px;
+  font-weight: 700;
+}
+.lt-name {
+  font-size: 12.5px;
+  font-weight: 600;
+  margin: 2px 0 6px;
+  color: var(--text-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.lt-bar {
+  height: 3px;
+  border-radius: var(--r-full);
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+.lt-bar-fill {
+  height: 100%;
+  border-radius: var(--r-full);
+  transition: width var(--dur-base) var(--ease-out);
+}
+
+/* ── 布局 ───────────────────────────────────────────────────────────────── */
+.curr-layout {
+  display: grid;
+  grid-template-columns: 296px 1fr;
+  gap: var(--sp-4);
+  align-items: start;
+}
+
+/* ── 课时列表 ───────────────────────────────────────────────────────────── */
+.lesson-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  position: sticky;
+  top: 0;
+}
+
+.ll-header {
+  padding: var(--sp-4);
+  border-radius: var(--r-md);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+}
+.ll-level {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.ll-items {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.lesson-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 10px var(--sp-3);
+  border-radius: var(--r-sm);
+  text-align: left;
+  transition: all var(--dur-fast) var(--ease-out);
+  border: 1px solid transparent;
+}
+.lesson-item:hover {
+  background: var(--glass-bg-hover);
+}
+.lesson-item.is-active {
+  background: linear-gradient(90deg, rgba(240, 199, 102, 0.13), transparent);
+  border-color: rgba(240, 199, 102, 0.28);
+}
+.lesson-item.is-passed .li-title {
+  color: var(--text-2);
+}
+
+.li-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--r-sm);
+  display: grid;
+  place-items: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+.li-body {
+  flex: 1;
+  min-width: 0;
+}
+.li-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.li-meta {
+  color: var(--text-4);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.li-check {
+  color: var(--success);
+  font-weight: 700;
+}
+.li-arrow {
+  color: var(--amber-3);
+}
+
+.ll-footer {
+  padding: var(--sp-4);
+  border-radius: var(--r-md);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+}
+
+/* ── 课时内容 ───────────────────────────────────────────────────────────── */
+.lesson-body {
+  min-width: 0;
+}
+
+.lesson-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.lc-header {
+  padding: var(--sp-6);
+  border-radius: var(--r-lg);
+  background:
+    radial-gradient(500px 200px at 10% 0%, rgba(240, 199, 102, 0.09), transparent 70%),
+    var(--glass-bg);
+  border: 1px solid var(--glass-border);
+}
+.lc-tags {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+.lc-objective {
+  margin-top: var(--sp-4);
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-sm);
+  background: rgba(0, 0, 0, 0.2);
+  font-size: 13.5px;
+  color: var(--text-2);
+  line-height: 1.7;
+}
+.lo-label {
+  display: inline-block;
+  margin-right: var(--sp-2);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--amber-3);
+  letter-spacing: 0.06em;
+}
+
+.lc-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.block {
+  padding: var(--sp-5);
+  border-radius: var(--r-md);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+}
+
+.block-title {
+  font-size: 15px;
+  font-weight: 650;
+  margin-bottom: var(--sp-3);
+  color: var(--text-1);
+}
+
+.block-prose {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--text-2);
+}
+.block-prose p {
+  margin-bottom: 9px;
+}
+
+.block-tip {
+  background: rgba(240, 199, 102, 0.06);
+  border-color: rgba(240, 199, 102, 0.24);
+}
+.tip-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--amber-2);
+  background: rgba(240, 199, 102, 0.14);
+  padding: 2px 9px;
+  border-radius: var(--r-full);
+  margin-bottom: var(--sp-3);
+}
+
+/* ── 练习 ───────────────────────────────────────────────────────────────── */
+.block-exercise {
+  background: rgba(111, 146, 214, 0.05);
+  border-color: rgba(111, 146, 214, 0.22);
+}
+.block-exercise.is-correct {
+  background: rgba(62, 207, 142, 0.06);
+  border-color: rgba(62, 207, 142, 0.28);
+}
+.block-exercise.is-wrong {
+  background: rgba(242, 85, 90, 0.05);
+  border-color: rgba(242, 85, 90, 0.26);
+}
+
+.ex-head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-3);
+}
+.ex-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--indigo-2);
+  padding: 2px 9px;
+  border-radius: var(--r-full);
+  background: rgba(111, 146, 214, 0.14);
+}
+.ex-verdict {
+  font-size: 12px;
+  font-weight: 700;
+}
+.is-correct .ex-verdict { color: var(--success); }
+.is-wrong .ex-verdict { color: var(--danger); }
+
+.ex-prompt {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: var(--sp-4);
+  line-height: 1.6;
+}
+
+.ex-options {
+  display: grid;
+  gap: 6px;
+}
+.ex-opt {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 10px var(--sp-3);
+  border-radius: var(--r-sm);
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--glass-border);
+  font-size: 13.5px;
+  text-align: left;
+  transition: all var(--dur-fast) var(--ease-out);
+}
+.ex-opt:hover:not(:disabled) {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-strong);
+  transform: translateX(3px);
+}
+.ex-opt:disabled { cursor: default; }
+.ex-opt.is-chosen {
+  border-color: var(--indigo-3);
+}
+.ex-opt.is-correct {
+  border-color: var(--success);
+  background: rgba(62, 207, 142, 0.12);
+}
+.ex-opt.is-wrong {
+  border-color: var(--danger);
+  background: rgba(242, 85, 90, 0.1);
+}
+.ex-opt-key {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--r-xs);
+  background: rgba(255, 255, 255, 0.07);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-3);
+  flex-shrink: 0;
+}
+
+.ex-explain {
+  margin-top: var(--sp-4);
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-sm);
+  background: rgba(242, 85, 90, 0.07);
+  border-left: 3px solid var(--danger);
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--text-2);
+}
+.ex-explain.is-correct {
+  background: rgba(62, 207, 142, 0.07);
+  border-left-color: var(--success);
+}
+.ex-explain strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text-1);
+}
+
+/* ── 迷你探索器 ─────────────────────────────────────────────────────────── */
+.mini-explorer {
+  margin-top: var(--sp-4);
+  padding: var(--sp-3);
+  border-radius: var(--r-md);
+  background: rgba(0, 0, 0, 0.22);
+}
+.me-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--sp-2);
+}
+.me-legend {
+  margin-top: 6px;
+  color: var(--text-4);
+}
+
+/* ── 音名练习 ───────────────────────────────────────────────────────────── */
+.note-drill {
+  margin-top: var(--sp-4);
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--glass-border);
+}
+.nd-head {
+  color: var(--text-4);
+  margin-bottom: var(--sp-2);
+}
+.nd-options {
+  display: flex;
+  gap: 6px;
+  margin-top: var(--sp-3);
+  flex-wrap: wrap;
+}
+.nd-opt {
+  padding: 6px 14px;
+  border-radius: var(--r-sm);
+  background: rgba(0, 0, 0, 0.24);
+  border: 1px solid var(--glass-border);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  transition: all var(--dur-fast) var(--ease-out);
+}
+.nd-opt:hover {
+  border-color: var(--glass-border-strong);
+  transform: translateY(-1px);
+}
+.nd-opt.is-correct {
+  background: rgba(62, 207, 142, 0.16);
+  border-color: var(--success);
+  color: var(--success);
+}
+.nd-opt.is-wrong {
+  background: rgba(242, 85, 90, 0.14);
+  border-color: var(--danger);
+  color: var(--danger);
+}
+.nd-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--sp-2);
+  min-height: 28px;
+}
+.nd-hint { color: var(--warning); }
+
+/* ── 达标 ───────────────────────────────────────────────────────────────── */
+.lc-footer {
+  display: flex;
+  gap: var(--sp-3);
+  padding: var(--sp-4) var(--sp-5);
+  border-radius: var(--r-md);
+  background: linear-gradient(90deg, rgba(62, 207, 142, 0.09), transparent);
+  border: 1px solid rgba(62, 207, 142, 0.24);
+}
+.lcf-icon { font-size: 20px; }
+.lcf-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  color: var(--success);
+}
+.lcf-text {
+  font-size: 13.5px;
+  color: var(--text-2);
+  margin-top: 3px;
+  line-height: 1.65;
+}
+
+/* ── 响应式 ─────────────────────────────────────────────────────────────── */
+@media (max-width: 1080px) {
+  .curr-layout { grid-template-columns: 1fr; }
+  .lesson-list { position: static; }
+  .level-bar { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 700px) {
+  .level-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .block, .lc-header { padding: var(--sp-4); }
+}

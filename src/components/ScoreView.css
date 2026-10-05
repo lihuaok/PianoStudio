@@ -1,0 +1,190 @@
+/*!
+ * Copyright (c) 2026 LIHUA. All rights reserved.
+ * 版权所有 (C) 2026 LIHUA，保留所有权利。
+ */
+
+/* ScoreView.css — 五线谱渲染样式 */
+
+.score-view {
+  width: 100%;
+  overflow: auto;
+  background: linear-gradient(180deg, #fbfaf6 0%, #f6f4ee 100%);
+  border-radius: var(--r-md);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-md);
+  max-height: 62vh;
+  scroll-behavior: smooth;
+}
+
+.score-view.is-compact {
+  max-height: 42vh;
+}
+
+.score-svg {
+  display: block;
+  min-width: 100%;
+}
+
+/* ── 谱表 ───────────────────────────────────────────────────────────────── */
+.sv-staff-line {
+  stroke: #2a2620;
+}
+.sv-barline {
+  stroke: #2a2620;
+}
+.sv-brace {
+  stroke: #2a2620;
+}
+
+/* ── 音符 ───────────────────────────────────────────────────────────────── */
+.sv-note {
+  transition: opacity 140ms ease;
+}
+
+.sv-head {
+  fill: #1c1913;
+  stroke: #1c1913;
+}
+
+.sv-head-normal {
+  fill: #1c1913;
+  stroke: #1c1913;
+}
+
+/* 待弹：淡琥珀 */
+.sv-head-target {
+  fill: #d9a53a;
+  stroke: #8a6314;
+}
+
+/* 当前：亮琥珀 + 光晕 */
+.sv-head-current {
+  fill: #f0a91e;
+  stroke: #6b4a08;
+  filter: drop-shadow(0 0 5px rgba(240, 169, 30, 0.85));
+}
+
+/* 正确：绿 */
+.sv-head-correct {
+  fill: #2fa36a;
+  stroke: #14603c;
+}
+
+/* 错误：红 */
+.sv-head-wrong {
+  fill: #d94b52;
+  stroke: #7d1f25;
+}
+
+.sv-stem {
+  stroke: #1c1913;
+}
+.sv-flag {
+  stroke: #1c1913;
+  fill: none;
+}
+
+.sv-note.is-current .sv-stem,
+.sv-note.is-current .sv-flag {
+  stroke: #6b4a08;
+}
+
+.sv-note.is-correct .sv-stem,
+.sv-note.is-correct .sv-flag {
+  stroke: #14603c;
+}
+
+.sv-note.is-wrong .sv-stem,
+.sv-note.is-wrong .sv-flag {
+  stroke: #7d1f25;
+}
+
+.sv-note.is-hover {
+  opacity: 1;
+}
+
+.sv-note:hover .sv-head {
+  filter: drop-shadow(0 0 4px rgba(40, 35, 25, 0.5));
+}
+
+/* ── 小节高亮 ───────────────────────────────────────────────────────────── */
+.sv-measure-bg {
+  fill: rgba(240, 199, 102, 0.14);
+  transition: fill 240ms ease;
+}
+.sv-measure-bg.is-current {
+  fill: rgba(240, 169, 30, 0.22);
+  animation: svPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes svPulse {
+  0%, 100% { fill: rgba(240, 169, 30, 0.16); }
+  50% { fill: rgba(240, 169, 30, 0.3); }
+}
+
+/* ── 文本元素 ───────────────────────────────────────────────────────────── */
+.sv-clef {
+  fill: #1c1913;
+  font-family: 'Bravura', 'Noto Music', 'Segoe UI Symbol', serif;
+}
+
+.sv-timesig {
+  fill: #1c1913;
+  font-weight: 700;
+  font-family: var(--font-serif);
+}
+
+.sv-measure-no {
+  fill: #8a8378;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.sv-finger {
+  fill: #9a5a10;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  text-anchor: middle;
+}
+
+.sv-notename {
+  fill: #6b6357;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  text-anchor: middle;
+}
+
+.sv-accidental {
+  fill: #1c1913;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+.sv-roman {
+  fill: #7a6a45;
+  font-weight: 700;
+  font-family: var(--font-serif);
+}
+
+.sv-ornament {
+  fill: #6b5a3a;
+}
+
+.sv-dynamic {
+  fill: #5a5348;
+  font-weight: 700;
+  font-style: italic;
+  font-family: var(--font-serif);
+}
+
+.sv-ledger-line {
+  stroke: #2a2620;
+}
+
+/* ── 深色模式下保持可读 ─────────────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  .score-view {
+    background: linear-gradient(180deg, #16181f 0%, #101218 100%);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}

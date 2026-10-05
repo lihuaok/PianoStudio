@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<!-- Copyright (c) 2026 LIHUA. All rights reserved. 版权所有 (C) 2026 LIHUA，保留所有权利。 -->
+
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vibe Coding 不会消除工程的壁垒 | 公众号排版稿</title>
+<style>
+  body{margin:0;background:#EDEAE4;font-family:-apple-system,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;}
+  .toolbar{position:sticky;top:0;z-index:9;background:#1B3A5C;color:#fff;padding:10px 14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:13px;}
+  .toolbar b{font-weight:600;letter-spacing:.5px;}
+  .toolbar button{background:#fff;color:#1B3A5C;border:0;border-radius:4px;padding:6px 12px;font-size:13px;cursor:pointer;font-family:inherit;}
+  .toolbar button.alt{background:#B4552D;color:#fff;}
+  .tip{color:#C9D6E4;font-size:12px;margin-left:auto;}
+  .page{background:#fff;width:100%;max-width:677px;margin:24px auto 60px;padding:34px 26px 40px;box-shadow:0 6px 28px rgba(27,58,92,.10);}
+  @media (max-width:720px){.page{padding:22px 15px 30px;margin:12px auto;}.tip{display:none;}}
+  .foot{width:100%;max-width:677px;margin:0 auto 60px;color:#6B6B6B;font-size:12px;line-height:1.9;}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <b>公众号排版稿</b>
+  <button onclick="copyRich()">复制正文（保留样式，直接粘贴到微信）</button>
+  <button class="alt" onclick="copyText()">复制纯文字</button>
+  <button onclick="exportAllPNG()">下载全部插图 PNG（<span id="figcount">4</span> 张）</button>
+  <button onclick="dl()">下载 HTML 源文件</button>
+  <span class="tip">选中正文 → Ctrl/Cmd+C 亦可粘贴到公众号编辑器</span>
+</div>
+
+<div class="page">
+
+<!-- ============ 正文开始（以下区域整段复制进公众号） ============ -->
+<div id="wx-article" style="width:100%;max-width:677px;margin:0 auto;background:#FFFFFF;font-family:-apple-system,'PingFang SC','Microsoft YaHei','Hiragino Sans GB',Helvetica,Arial,sans-serif;color:#33322E;font-size:16px;line-height:1.85;letter-spacing:0.2px;">
+
+  <!-- 文章头 -->
+  <section style="margin:0 0 26px;padding:0 0 20px;border-bottom:1px solid #E4E0D8;">
+    <p style="margin:0 0 12px;font-size:13px;line-height:1.6;color:#B4552D;letter-spacing:2px;">技 术 思 辨 · 认 知 边 界</p>
+    <h1 style="margin:0 0 12px;font-size:23px;line-height:1.5;font-weight:700;color:#1B3A5C;letter-spacing:.5px;">Vibe Coding 不会消除工程的壁垒</h1>
+    <p style="margin:0;font-size:14px;line-height:1.7;color:#8A8578;">当「说人话就能写代码」成为现实，哪一种能力反而变成了稀缺品？</p>
+  </section>
+
+  <!-- 导语 -->
+  <section style="margin:0 0 8px;">
+    <p style="margin:0 0 16px;font-size:16px;line-height:1.9;color:#33322E;">过去两年，「不会写代码也能做出一个能跑的 Demo」成了很多人的共识。事情确实在发生 —— 但把同一段话反过来看，另一套能力从来没有变轻，只是变得更显眼了。</p>
+  </section>
+
+  <!-- 01 -->
+  <section style="margin:34px 0 4px;">
+    <p style="margin:0 0 10px;font-size:18px;line-height:1.5;font-weight:700;color:#1B3A5C;letter-spacing:.5px;">01 &nbsp;它到底是什么</p>
+    <span style="display:inline-block;width:44px;height:3px;background:#B4552D;vertical-align:middle;margin-bottom:4px;"></span>
+  </section>
+  <section style="margin:0 0 18px;">
+    <p style="margin:0 0 16px;font-size:16px;line-height:1.9;color:#33322E;">Vibe Coding 作为自然语言驱动的代码生成范式，本质是<span style="background:#FDF3DC;padding:2px 3px;color:#B4552D;">基于大模型的代码合成工具</span>。它的核心能力很简单：把人类<span style="color:#1B3A5C;font-weight:700;">明确的需求描述</span>，转化为代码实现。</p>
+    <p style="margin:0 0 16px;font-size:16px;line-height:1.9;color:#33322E;">它的价值边界同样清楚：降低了原型开发、简单应用搭建的门槛，让不精通编程语法的人也能快速产出一个可用的 Demo。这也是文科生最容易发挥优势的地方 —— 你擅长的是梳理业务流程、把需求撰写成别人读得懂的文案。</p>
+  </section>
+
+  
+  <section style="margin:26px 0 0;text-align:center;">
+    <div style="max-width:677px;margin:0 auto;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 360" width="680" height="360" font-family="'PingFang SC','Microsoft YaHei','Hiragino Sans GB',sans-serif">
+  <defs>
+    <marker id="fig01-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5C6B77"/>
+    </marker>
+    <marker id="fig01-arO" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#B4552D"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="360" fill="#FFFFFF"/>
+  <rect x="10" y="10" width="660" height="340" fill="#FFFDF9" stroke="#D8D3C8" stroke-width="1"/>
+
+  <!-- 图头 -->
+  <text x="28" y="36" font-size="15" font-weight="700" fill="#1B3A5C">图 V-01　Vibe Coding 的能力分工</text>
+  <text x="652" y="36" font-size="12" fill="#8A8578" text-anchor="end">概念图解 · 示意非等比</text>
+  <line x1="10" y1="52" x2="670" y2="52" stroke="#D8D3C8" stroke-width="1"/>
+
+  <!-- 上：AI 可独立完成 -->
+  <rect x="30" y="66" width="620" height="132" rx="6" fill="#EEF3F8" stroke="#B8CCDD" stroke-width="1"/>
+  <text x="46" y="88" font-size="13" font-weight="700" fill="#1B3A5C">AI 可独立完成</text>
+  <rect x="110" y="108" width="128" height="64" rx="4" fill="#FFFFFF" stroke="#B8CCDD" stroke-width="1"/>
+  <text x="110" y="134" font-size="13" fill="#33322E" text-anchor="middle">自然语言</text>
+  <text x="110" y="152" font-size="13" fill="#33322E" text-anchor="middle">需求描述</text>
+  <line x1="238" y1="140" x2="258" y2="140" stroke="#5C6B77" stroke-width="1.4" marker-end="url(#fig01-ar)"/>
+  <rect x="264" y="104" width="144" height="72" rx="4" fill="#1B3A5C" stroke="#1B3A5C" stroke-width="1"/>
+  <text x="336" y="132" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">LLM 代码合成</text>
+  <text x="336" y="152" font-size="11" fill="#C9D6E4" text-anchor="middle">（基于大模型的合成器）</text>
+  <line x1="412" y1="140" x2="432" y2="140" stroke="#5C6B77" stroke-width="1.4" marker-end="url(#fig01-ar)"/>
+  <rect x="442" y="108" width="128" height="64" rx="4" fill="#FFFFFF" stroke="#B8CCDD" stroke-width="1"/>
+  <text x="442" y="134" font-size="13" fill="#33322E" text-anchor="middle">可运行的</text>
+  <text x="442" y="152" font-size="13" fill="#33322E" text-anchor="middle">代码</text>
+  <text x="340" y="186" font-size="12" fill="#5C6B77" text-anchor="middle">典型产出：原型开发 · 简单应用 · 一次性可用 Demo</text>
+
+  <!-- 分界 -->
+  <line x1="30" y1="220" x2="650" y2="220" stroke="#E0C9A6" stroke-width="1.2" stroke-dasharray="7 5"/>
+  <line x1="340" y1="206" x2="340" y2="216" stroke="#B4552D" stroke-width="2" marker-end="url(#fig01-arO)"/>
+  <text x="356" y="216" font-size="12" font-weight="700" fill="#B4552D">生成 ≠ 可用</text>
+
+  <!-- 下：必须由人承担 -->
+  <rect x="30" y="232" width="620" height="90" rx="6" fill="#F5EFE3" stroke="#E0C9A6" stroke-width="1"/>
+  <text x="46" y="254" font-size="13" font-weight="700" fill="#B4552D">必须由人承担</text>
+  <rect x="44" y="262" width="92" height="42" rx="4" fill="#FFFFFF" stroke="#D8B98E" stroke-width="1"/>
+  <text x="90" y="284" font-size="12" fill="#33322E" text-anchor="middle">系统建模</text>
+  <text x="90" y="299" font-size="10" fill="#8A8578" text-anchor="middle">structure</text>
+  <rect x="144" y="262" width="92" height="42" rx="4" fill="#FFFFFF" stroke="#D8B98E" stroke-width="1"/>
+  <text x="190" y="284" font-size="12" fill="#33322E" text-anchor="middle">约束识别</text>
+  <text x="190" y="299" font-size="10" fill="#8A8578" text-anchor="middle">invariant</text>
+  <rect x="244" y="262" width="92" height="42" rx="4" fill="#FFFFFF" stroke="#D8B98E" stroke-width="1"/>
+  <text x="290" y="284" font-size="12" fill="#33322E" text-anchor="middle">风险预判</text>
+  <text x="290" y="299" font-size="10" fill="#8A8578" text-anchor="middle">failure</text>
+  <rect x="344" y="262" width="92" height="42" rx="4" fill="#FFFFFF" stroke="#D8B98E" stroke-width="1"/>
+  <text x="390" y="284" font-size="12" fill="#33322E" text-anchor="middle">底层原理</text>
+  <text x="390" y="299" font-size="10" fill="#8A8578" text-anchor="middle">fundamental</text>
+  <rect x="444" y="262" width="92" height="42" rx="4" fill="#FFFFFF" stroke="#D8B98E" stroke-width="1"/>
+  <text x="490" y="284" font-size="12" fill="#33322E" text-anchor="middle">权衡取舍</text>
+  <text x="490" y="299" font-size="10" fill="#8A8578" text-anchor="middle">trade-off</text>
+  <rect x="544" y="262" width="92" height="42" rx="4" fill="#FFFFFF" stroke="#D8B98E" stroke-width="1"/>
+  <text x="590" y="284" font-size="12" fill="#33322E" text-anchor="middle">故障修复</text>
+  <text x="590" y="299" font-size="10" fill="#8A8578" text-anchor="middle">debug</text>
+
+  <!-- 图注 + 标题栏 -->
+  <text x="28" y="340" font-size="11" fill="#8A8578">注：上半区语言可覆盖，下半区只能靠工程训练。</text>
+  <rect x="452" y="324" width="218" height="26" fill="#FAF7F2" stroke="#D8D3C8" stroke-width="1"/>
+  <text x="561" y="341" font-size="11" fill="#8A8578" text-anchor="middle">V-01 · 概念图解（非等比） · 2026-10</text>
+</svg></div>
+  </section>
+  <section style="margin:10px 0 20px;text-align:center;">
+    <p style="margin:0;font-size:13px;line-height:1.8;color:#8A8578;">上半区是语言能覆盖的，下半区是语言接不住的 —— 生成靠模型，可用靠人。</p>
+  </section>
+
+  <!-- 02 -->
+  <section style="margin:34px 0 4px;">
+    <p style="margin:0 0 10px;font-size:18px;line-height:1.5;font-weight:700;color:#1B3A5C;letter-spacing:.5px;">02 &nbsp;但工业化软件的核心价值不在这里</p>
+    <span style="display:inline-block;width:44px;height:3px;background:#B4552D;vertical-align:middle;margin-bottom:4px;"></span>
+  </section>
+  <section style="margin:0 0 18px;">
+    <p style="margin:0 0 16px;font-size:16px;line-height:1.9;color:#33322E;">工业化软件开发的核心价值，<span style="color:#1B3A5C;font-weight:700;">不在于代码文本的生成</span>，而在于下面这些更硬的东西：</p>
+    <p style="margin:0 0 14px;font-size:15px;line-height:2.1;color:#33322E;">
+      <span style="display:inline-block;background:#EEF3F8;color:#1B3A5C;border-radius:4px;padding:3px 9px;margin:0 6px 8px 0;font-size:14px;">系统建模</span>
+      <span style="display:inline-block;background:#EEF3F8;color:#1B3A5C;border-radius:4px;padding:3px 9px;margin:0 6px 8px 0;font-size:14px;">约束识别</span>
+      <span style="display:inline-block;background:#EEF3F8;color:#1B3A5C;border-radius:4px;padding:3px 9px;margin:0 6px 8px 0;font-size:14px;">风险预判</span>
+      <span style="display:inline-block;background:#EEF3F8;color:#1B3A5C;border-radius:4px;padding:3px 9px;margin:0 6px 8px 0;font-size:14px;">底层原理理解</span>
+      <span style="display:inline-block;background:#EEF3F8;color:#1B3A5C;border-radius:4px;padding:3px 9px;margin:0 6px 8px 0;font-size:14px;">权衡取舍</span>
+      <span style="display:inline-block;background:#EEF3F8;color:#1B3A5C;border-radius:4px;padding:3px 9px;margin:0 6px 8px 0;font-size:14px;">故障修复</span>
+    </p>
+  </section>
+
+  <!-- 03 -->
+  <section style="margin:34px 0 4px;">
+    <p style="margin:0 0 10px;font-size:18px;line-height:1.5;font-weight:700;color:#1B3A5C;letter-spacing:.5px;">03 &nbsp;AI 写出来的代码，坏在哪里</p>
+    <span style="display:inline-block;width:44px;height:3px;background:#B4552D;vertical-align:middle;margin-bottom:4px;"></span>
+  </section>
+  <section style="margin:0 0 18px;">
+    <p style="margin:0 0 16px;font-size:16px;line-height:1.9;color:#33322E;">大模型生成的代码普遍带着一类<span style="color:#B4552D;font-weight:700;">看不见的缺陷</span>：边界条件缺失、资源失控、并发漏洞、安全隐患。这些问题有个共同点 —— 它们<span style="color:#B4552D;font-weight:700;">无法仅凭自然语言描述就自动消除</span>。</p>
+    <p style="margin:0 0 16px;font-size:16px;line-height:1.9;color:#33322E;">识别、定位、修复这类深层问题，需要连续的工学训练：掌握计算机底层、操作系统、网络、数据库、软件工程这一整套体系化知识。这不是多背几个提示词能补上的差距。</p>
+  </section>
+
+  
+  <section style="margin:26px 0 0;text-align:center;">
+    <div style="max-width:677px;margin:0 auto;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 360" width="680" height="360" font-family="'PingFang SC','Microsoft YaHei','Hiragino Sans GB',sans-serif">
+  <defs>
+    <marker id="fig03-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#B4552D"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="360" fill="#FFFFFF"/>
+  <rect x="10" y="10" width="660" height="340" fill="#FFFDF9" stroke="#D8D3C8" stroke-width="1"/>
+
+  <text x="28" y="36" font-size="15" font-weight="700" fill="#1B3A5C">图 V-03　AI 代码的隐性缺陷</text>
+  <text x="652" y="36" font-size="12" fill="#8A8578" text-anchor="end">剖面图解 · 水面 / 水下两层</text>
+  <line x1="10" y1="52" x2="670" y2="52" stroke="#D8D3C8" stroke-width="1"/>
+
+  <!-- 水体 -->
+  <rect x="30" y="70" width="620" height="222" fill="#E7EFF4" stroke="#C6D8E2" stroke-width="1"/>
+
+  <!-- 水面之上：可观察 -->
+  <text x="70" y="104" font-size="17" font-weight="700" fill="#1B3A5C">水面以上 · 看得见</text>
+  <text x="70" y="130" font-size="12" fill="#5C6B77">接口返回 200 · 界面渲染正常 · 演示流程走通</text>
+  <text x="596" y="104" font-size="12" font-weight="700" fill="#1B3A5C" text-anchor="end">能跑</text>
+
+  <!-- 水面波浪 -->
+  <path d="M30,196 q15.6,-9 31.2,0 t31.2,0 t31.2,0 t31.2,0 t31.2,0 t31.2,0 t31.2,0 t31.2,0 t31.2,0 t31.2,0 t31.2,0 t31.2,0 t31.2,0 t31.2,0 t31.2,0 t31.2,0 t31.2,0 t31.2,0 t31.2,0 t31.2,0"
+        fill="none" stroke="#B4552D" stroke-width="2.4"/>
+  <line x1="30" y1="196" x2="648" y2="196" stroke="#B4552D" stroke-width="2.4" stroke-dasharray="3 9"/>
+
+  <!-- 水面之下 -->
+  <text x="70" y="226" font-size="12" font-weight="700" fill="#8A6A4A">水面以下 · 看不见</text>
+  <rect x="44" y="238" width="144" height="42" rx="4" fill="#FFFFFF" stroke="#C9C2B4" stroke-width="1"/>
+  <text x="116" y="256" font-size="12" font-weight="700" fill="#33322E" text-anchor="middle">边界条件缺失</text>
+  <text x="116" y="271" font-size="10" fill="#8A8578" text-anchor="middle">空值 / 极值 / 异常输入</text>
+  <rect x="200" y="238" width="144" height="42" rx="4" fill="#FFFFFF" stroke="#C9C2B4" stroke-width="1"/>
+  <text x="272" y="256" font-size="12" font-weight="700" fill="#33322E" text-anchor="middle">资源失控</text>
+  <text x="272" y="271" font-size="10" fill="#8A8578" text-anchor="middle">句柄 / 连接未释放</text>
+  <rect x="356" y="238" width="144" height="42" rx="4" fill="#FFFFFF" stroke="#C9C2B4" stroke-width="1"/>
+  <text x="428" y="256" font-size="12" font-weight="700" fill="#33322E" text-anchor="middle">并发漏洞</text>
+  <text x="428" y="271" font-size="10" fill="#8A8578" text-anchor="middle">竞态 / 数据错乱</text>
+  <rect x="512" y="238" width="144" height="42" rx="4" fill="#FFFFFF" stroke="#C9C2B4" stroke-width="1"/>
+  <text x="584" y="256" font-size="12" font-weight="700" fill="#33322E" text-anchor="middle">安全隐患</text>
+  <text x="584" y="271" font-size="10" fill="#8A8578" text-anchor="middle">越权 / 注入 / 泄漏</text>
+
+  <!-- 下沉箭头 -->
+  <line x1="648" y1="150" x2="648" y2="196" stroke="#B4552D" stroke-width="1.6" marker-end="url(#fig03-ar)"/>
+  <text x="644" y="146" font-size="11" font-weight="700" fill="#B4552D" text-anchor="end">缺陷向下沉</text>
+
+  <line x1="10" y1="326" x2="670" y2="326" stroke="#E4E0D8" stroke-width="1"/>
+  <text x="28" y="344" font-size="11" fill="#8A8578">注：看得见的是「能跑」，看不见的是「不会崩」。</text>
+  <rect x="452" y="330" width="218" height="26" fill="#FAF7F2" stroke="#D8D3C8" stroke-width="1"/>
+  <text x="561" y="347" font-size="11" fill="#8A8578" text-anchor="middle">V-03 · 剖面图解（示意） · 2026-10</text>
+</svg></div>
+  </section>
+  <section style="margin:10px 0 20px;text-align:center;">
+    <p style="margin:0;font-size:13px;line-height:1.8;color:#8A8578;">一份"没报错"的 AI 代码，水面以下可能沉着四层窟窿。</p>
+  </section>
+
+  <!-- 04 金句 -->
+  <section style="margin:30px 0 26px;padding:20px 20px 18px;background:#FAF7F2;border-left:4px solid #B4552D;">
+    <p style="margin:0 0 12px;font-size:15px;line-height:1.9;color:#33322E;">Vibe Coding 遵循一个根本规律：</p>
+    <p style="margin:0 0 12px;font-size:19px;line-height:1.7;font-weight:700;color:#1B3A5C;letter-spacing:.5px;">模型输出的质量，<br/>永远受限于使用者的认知上限。</p>
+    <p style="margin:0;font-size:15px;line-height:1.9;color:#33322E;">使用者不懂工程原理，就无法定义完备的约束，也无法校验 AI 输出的缺陷，最终只能停留在「看起来能跑」的原型阶段。</p>
+  </section>
+
+  
+  <section style="margin:26px 0 0;text-align:center;">
+    <div style="max-width:677px;margin:0 auto;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 360" width="680" height="360" font-family="'PingFang SC','Microsoft YaHei','Hiragino Sans GB',sans-serif">
+  <defs>
+    <marker id="fig02-arD" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8A8578"/>
+    </marker>
+    <marker id="fig02-arB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#B4552D"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="360" fill="#FFFFFF"/>
+  <rect x="10" y="10" width="660" height="340" fill="#FFFDF9" stroke="#D8D3C8" stroke-width="1"/>
+
+  <text x="28" y="36" font-size="15" font-weight="700" fill="#1B3A5C">图 V-02　认知上限定律</text>
+  <text x="652" y="36" font-size="12" fill="#8A8578" text-anchor="end">曲线图解 · 横轴认知深度 / 纵轴代码质量</text>
+  <line x1="10" y1="52" x2="670" y2="52" stroke="#D8D3C8" stroke-width="1"/>
+
+  <!-- 绘图区 -->
+  <rect x="98" y="70" width="530" height="232" fill="#FCFBF7" stroke="#E4E0D8" stroke-width="1"/>
+  <g stroke="#E4E0D8" stroke-width="1">
+    <line x1="98" y1="128" x2="628" y2="128"/>
+    <line x1="98" y1="186" x2="628" y2="186"/>
+    <line x1="98" y1="244" x2="628" y2="244"/>
+  </g>
+
+  <!-- 实际产出面（min 曲线以下） -->
+  <path d="M98,278 L363,179 L508,125 L628,102 L628,302 L98,302 Z" fill="#EAF0F5" opacity="0.9"/>
+  <!-- 认知赤字带（模型能力线 与 实际产出线 之间） -->
+  <path d="M98,203 L363,153 L508,125 L508,125 L363,179 L98,278 Z" fill="#FBEFE6" stroke="#E0C9A6" stroke-width="1"/>
+
+  <!-- 坐标轴 -->
+  <line x1="98" y1="302" x2="628" y2="302" stroke="#5C6B77" stroke-width="1.4" marker-end="url(#fig02-arD)"/>
+  <line x1="98" y1="70" x2="98" y2="302" stroke="#5C6B77" stroke-width="1.4"/>
+  <g font-size="11" fill="#8A8578" text-anchor="end">
+    <text x="88" y="75">100</text>
+    <text x="88" y="132">75</text>
+    <text x="88" y="190">50</text>
+    <text x="88" y="248">25</text>
+    <text x="88" y="306">0</text>
+  </g>
+  <text x="28" y="186" font-size="11" fill="#5C6B77" transform="rotate(-90 28 186)" text-anchor="middle">代码质量</text>
+  <g font-size="11" fill="#8A8578" text-anchor="middle">
+    <text x="150" y="320">浅</text>
+    <text x="280" y="320">一般</text>
+    <text x="400" y="320">足够</text>
+    <text x="540" y="320">深厚</text>
+  </g>
+  <text x="363" y="338" font-size="11" fill="#5C6B77" text-anchor="middle">使用者工程认知深度 →</text>
+
+  <!-- 三条关键线 -->
+  <path d="M98,203 L363,153 L508,125 L628,102" fill="none" stroke="#9DB8CE" stroke-width="2" stroke-dasharray="8 5"/>
+  <path d="M98,278 L363,179 L508,125 L628,80" fill="none" stroke="#8A8578" stroke-width="2"/>
+  <path d="M98,278 L363,179 L508,125 L628,102" fill="none" stroke="#1B3A5C" stroke-width="2.8"/>
+
+  <!-- 交点 -->
+  <circle cx="508" cy="125" r="5.5" fill="#FFFFFF" stroke="#B4552D" stroke-width="2.6"/>
+  <line x1="504" y1="121" x2="466" y2="94" stroke="#B4552D" stroke-width="1.2"/>
+  <text x="462" y="88" font-size="12" font-weight="700" fill="#B4552D" text-anchor="end">临界点：认知补齐</text>
+  <text x="462" y="104" font-size="11" fill="#B4552D" text-anchor="end">产出随认知跃迁</text>
+
+  <!-- 线标注 -->
+  <line x1="176" y1="106" x2="212" y2="132" stroke="#9DB8CE" stroke-width="1.2"/>
+  <text x="172" y="102" font-size="11" fill="#7C94AC" text-anchor="end">模型能力上限</text>
+  <line x1="556" y1="90" x2="592" y2="100" stroke="#8A8578" stroke-width="1.2"/>
+  <text x="560" y="94" font-size="11" fill="#8A8578">使用者认知天花板</text>
+  <text x="363" y="292" font-size="11" font-weight="700" fill="#1B3A5C" text-anchor="middle">实际产出 = min(模型能力, 认知)</text>
+
+  <!-- 赤字区标签 -->
+  <rect x="116" y="190" width="184" height="48" rx="4" fill="#FFFFFF" fill-opacity="0.92" stroke="#E0C9A6" stroke-width="1"/>
+  <text x="208" y="212" font-size="12" font-weight="700" fill="#B4552D" text-anchor="middle">认知赤字区</text>
+  <text x="208" y="230" font-size="11" fill="#8A6A4A" text-anchor="middle">边界 · 并发 · 资源 · 安全</text>
+
+  <line x1="10" y1="326" x2="670" y2="326" stroke="#E4E0D8" stroke-width="1"/>
+  <text x="28" y="344" font-size="11" fill="#8A8578">注：模型有多强不决定产出，使用者的认知决定产出天花板。</text>
+  <rect x="452" y="330" width="218" height="26" fill="#FAF7F2" stroke="#D8D3C8" stroke-width="1"/>
+  <text x="561" y="347" font-size="11" fill="#8A8578" text-anchor="middle">V-02 · 曲线图解（示意） · 2026-10</text>
+</svg></div>
+  </section>
+  <section style="margin:10px 0 20px;text-align:center;">
+    <p style="margin:0;font-size:13px;line-height:1.8;color:#8A8578;">所以真正的瓶颈不在模型有多强，而在提问者的工程认知有多深。</p>
+  </section>
+
+  <!-- 05 -->
+  <section style="margin:34px 0 4px;">
+    <p style="margin:0 0 10px;font-size:18px;line-height:1.5;font-weight:700;color:#1B3A5C;letter-spacing:.5px;">05 &nbsp;所以，壁垒没有消失</p>
+    <span style="display:inline-block;width:44px;height:3px;background:#B4552D;vertical-align:middle;margin-bottom:4px;"></span>
+  </section>
+  <section style="margin:0 0 18px;">
+    <p style="margin:0 0 16px;font-size:16px;line-height:1.9;color:#33322E;">所以 Vibe Coding 会改变编码的<span style="color:#1B3A5C;font-weight:700;">工作方式</span>，但<span style="color:#B4552D;font-weight:700;">不会消除工程能力的壁垒</span>。</p>
+    <p style="margin:0 0 14px;font-size:16px;line-height:1.9;color:#33322E;">业务原型，可以由非工科人员借助 AI 快速搭建；</p>
+    <p style="margin:0 0 16px;font-size:16px;line-height:1.9;color:#33322E;">而稳定、安全、可长期迭代的生产级系统，仍然离不开经过系统工科训练的开发者。</p>
+  </section>
+
+  
+  <section style="margin:26px 0 0;text-align:center;">
+    <div style="max-width:677px;margin:0 auto;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 360" width="680" height="360" font-family="'PingFang SC','Microsoft YaHei','Hiragino Sans GB',sans-serif">
+  <defs>
+    <marker id="fig04-arO" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#B4552D"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="360" fill="#FFFFFF"/>
+  <rect x="10" y="10" width="660" height="340" fill="#FFFDF9" stroke="#D8D3C8" stroke-width="1"/>
+
+  <text x="28" y="36" font-size="15" font-weight="700" fill="#1B3A5C">图 V-04　原型与生产系统的层序对比</text>
+  <text x="652" y="36" font-size="12" fill="#8A8578" text-anchor="end">层序图解 · 自上而下逐层加固</text>
+  <line x1="10" y1="52" x2="670" y2="52" stroke="#D8D3C8" stroke-width="1"/>
+
+  <line x1="40" y1="96" x2="300" y2="96" stroke="#B8CCDD" stroke-width="1.4"/>
+  <text x="40" y="90" font-size="15" font-weight="700" fill="#1B3A5C">能跑的 Demo</text>
+  <text x="40" y="110" font-size="11" fill="#5C6B77">自然语言一次成型，3 层即可运行</text>
+
+  <line x1="360" y1="96" x2="640" y2="96" stroke="#E0C9A6" stroke-width="1.4"/>
+  <text x="360" y="90" font-size="15" font-weight="700" fill="#B4552D">生产级系统</text>
+  <text x="360" y="110" font-size="11" fill="#8A6A4A">拆解为工程约束，逐层加固</text>
+
+  <!-- 左塔：3 层 -->
+  <rect x="40" y="122" width="260" height="60" rx="4" fill="#EEF3F8" stroke="#B8CCDD" stroke-width="1"/>
+  <text x="170" y="146" font-size="13" font-weight="700" fill="#1B3A5C" text-anchor="middle">界面与交互</text>
+  <text x="170" y="164" font-size="11" fill="#5C6B77" text-anchor="middle">看得见的部分（AI 最擅长）</text>
+  <rect x="40" y="188" width="260" height="60" rx="4" fill="#EEF3F8" stroke="#B8CCDD" stroke-width="1"/>
+  <text x="170" y="212" font-size="13" font-weight="700" fill="#1B3A5C" text-anchor="middle">核心逻辑</text>
+  <text x="170" y="230" font-size="11" fill="#5C6B77" text-anchor="middle">跑通主流程即可</text>
+  <rect x="40" y="254" width="260" height="60" rx="4" fill="#EEF3F8" stroke="#B8CCDD" stroke-width="1"/>
+  <text x="170" y="278" font-size="13" font-weight="700" fill="#1B3A5C" text-anchor="middle">数据</text>
+  <text x="170" y="296" font-size="11" fill="#5C6B77" text-anchor="middle">存得下、读得回</text>
+
+  <!-- 右塔：6 层 -->
+  <rect x="360" y="122" width="280" height="28" rx="3" fill="#1B3A5C" fill-opacity="0.92"/>
+  <text x="500" y="141" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">领域建模</text>
+  <rect x="360" y="156" width="280" height="28" rx="3" fill="#1B3A5C" fill-opacity="0.92"/>
+  <text x="500" y="175" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">接口契约</text>
+  <rect x="360" y="190" width="280" height="28" rx="3" fill="#1B3A5C" fill-opacity="0.92"/>
+  <text x="500" y="209" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">错误与降级</text>
+  <rect x="360" y="224" width="280" height="28" rx="3" fill="#1B3A5C" fill-opacity="0.92"/>
+  <text x="500" y="243" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">权限与安全</text>
+  <rect x="360" y="258" width="280" height="28" rx="3" fill="#1B3A5C" fill-opacity="0.92"/>
+  <text x="500" y="277" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">可观测性（日志 / 指标 /  tracing）</text>
+  <rect x="360" y="292" width="280" height="28" rx="3" fill="#1B3A5C" fill-opacity="0.92"/>
+  <text x="500" y="311" font-size="12" font-weight="700" fill="#FFFFFF" text-anchor="middle">部署与运维</text>
+
+  <!-- 中间箭头 -->
+  <line x1="330" y1="130" x2="330" y2="300" stroke="#B4552D" stroke-width="2" marker-start="url(#fig04-arO)" marker-end="url(#fig04-arO)"/>
+  <text x="330" y="220" font-size="11" font-weight="700" fill="#B4552D" transform="rotate(-90 330 220)" text-anchor="middle">工程密度 ↑</text>
+
+  <text x="28" y="340" font-size="11" fill="#8A8578">左：3 层即可运行；右：6 层才敢上线。</text>
+  <rect x="452" y="326" width="218" height="26" fill="#FAF7F2" stroke="#D8D3C8" stroke-width="1"/>
+  <text x="561" y="343" font-size="11" fill="#8A8578" text-anchor="middle">V-04 · 层序图解（示意） · 2026-10</text>
+</svg></div>
+  </section>
+  <section style="margin:10px 0 20px;text-align:center;">
+    <p style="margin:0;font-size:13px;line-height:1.8;color:#8A8578;">把同一次生成，放到工程尺度上重算一遍，层序数会从 3 变 6。</p>
+  </section>
+
+  <section style="margin:34px 0 0;padding:18px 18px 16px;background:#EEF3F8;border-radius:6px;">
+    <p style="margin:0 0 10px;font-size:16px;line-height:1.9;color:#1B3A5C;font-weight:700;">话题：</p>
+    <p style="margin:0;font-size:15px;line-height:1.9;color:#33322E;">你用 Vibe Coding 做出过哪个让你惊喜的 Demo？又是在哪一步被「能跑、但一跑就出问题」的代码绊住的？欢迎在评论区聊聊。</p>
+  </section>
+
+  <section style="margin:28px 0 0;padding-top:20px;border-top:1px solid #E4E0D8;">
+    <p style="margin:0;font-size:14px;line-height:1.9;color:#8A8578;text-align:center;">工具会继续变轻，工科训练不会变轻。</p>
+  </section>
+
+</div>
+<!-- ============ 正文结束 ============ -->
+
+</div>
+
+<div class="foot">
+  使用说明：点击「复制正文」后，在公众号后台「新建图文」的正文区按 Ctrl/Cmd+V 粘贴，样式会一并保留；若个别样式被平台过滤，可再手动微调字号（建议正文 15–16px、行高 1.75 以上）。
+</div>
+
+<script>
+function richHTML(){
+  var el=document.getElementById('wx-article');
+  var wrap=document.createElement('div');
+  wrap.appendChild(el.cloneNode(true));
+  return wrap.innerHTML;
+}
+function plainText(){
+  var el=document.getElementById('wx-article').cloneNode(true);
+  el.querySelectorAll('br').forEach(function(b){b.parentNode.replaceChild(document.createTextNode('\n'),b);});
+  return (el.innerText||el.textContent).replace(/\n{2,}/g,'\n').trim();
+}
+function flash(msg,btn){
+  var o=btn||event.target; var t=o.innerText; o.innerText=msg;
+  setTimeout(function(){o.innerText=t;},1800);
+}
+function copyRich(){
+  var el=document.getElementById('wx-article');
+  var range=document.createRange(); range.selectNodeContents(el);
+  var sel=window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+  try{ document.execCommand('copy'); flash('已复制，去公众号粘贴'); }
+  catch(e){ alert('复制失败，请手动选中正文后复制。'); }
+  sel.removeAllRanges();
+}
+function copyText(){
+  var ta=document.createElement('textarea');
+  ta.value=plainText(); ta.style.position='fixed'; ta.style.left='-9999px';
+  document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); flash('纯文字已复制'); }catch(e){}
+  document.body.removeChild(ta);
+}
+/* 把正文里的 SVG 逐个渲染成 2 倍图 PNG 下载（公众号插图直接可用） */
+function svgToPNG(svg, scale){
+  return new Promise(function(res){
+    var xml = new XMLSerializer().serializeToString(svg);
+    var img = new Image();
+    img.onload = function(){
+      var c = document.createElement('canvas');
+      c.width = Math.round(680 * (scale||2));
+      c.height = Math.round(360 * (scale||2));
+      var g = c.getContext('2d');
+      g.fillStyle = '#FFFFFF';
+      g.fillRect(0, 0, c.width, c.height);
+      g.drawImage(img, 0, 0, c.width, c.height);
+      res(c.toDataURL('image/png'));
+    };
+    img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(xml)));
+  });
+}
+function exportAllPNG(){
+  var svgs = [].slice.call(document.querySelectorAll('#wx-article svg'));
+  if (!svgs.length) { alert('没有找到插图'); return; }
+  var names = ['V-01-能力分工','V-02-认知上限定律','V-03-隐性缺陷','V-04-原型vs生产'];
+  svgs.forEach(function(svg, i){
+    svgToPNG(svg, 2).then(function(url){
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = '公众号插图-' + (names[i] || ('fig-' + (i+1))) + '.png';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    });
+  });
+}
+function dl(){
+  var html='<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><title>公众号正文</title></head><body style="margin:0;background:#FAFAFA;padding:20px;">'
+    +richHTML()+'</body></html>';
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([html],{type:'text/html;charset=utf-8'}));
+  a.download='vibe-coding-gongzhonghao.html'; a.click();
+}
+</script>
+
+</body>
+</html>

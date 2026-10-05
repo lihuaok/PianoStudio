@@ -1,0 +1,302 @@
+/*!
+ * Copyright (c) 2026 LIHUA. All rights reserved.
+ * 版权所有 (C) 2026 LIHUA，保留所有权利。
+ */
+
+/* PracticeRoomPage.css */
+
+.practice-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+/* ── 模式切换 ───────────────────────────────────────────────────────────── */
+.pr-modes {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+.pr-mode {
+  padding: 8px var(--sp-4);
+  border-radius: var(--r-sm);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-3);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  transition: all var(--dur-fast) var(--ease-out);
+}
+.pr-mode:hover {
+  color: var(--text-1);
+  background: var(--glass-bg-hover);
+}
+.pr-mode.is-active {
+  background: linear-gradient(135deg, var(--amber-3), var(--amber-4));
+  color: #1a1405;
+  border-color: transparent;
+  box-shadow: 0 3px 12px rgba(240, 199, 102, 0.24);
+}
+
+/* ── 工具条 ─────────────────────────────────────────────────────────────── */
+.pr-toolbar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--sp-4);
+  padding: var(--sp-4) var(--sp-5);
+}
+.prt-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.prt-group > label {
+  color: var(--text-4);
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.octave-ctl {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+.octave-ctl .mono {
+  min-width: 26px;
+  text-align: center;
+  color: var(--amber-2);
+  font-weight: 700;
+}
+
+.toggle-row {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.tgl {
+  padding: 5px 10px;
+  border-radius: var(--r-full);
+  font-size: 11.5px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  color: var(--text-3);
+  transition: all var(--dur-fast) var(--ease-out);
+}
+.tgl:hover { color: var(--text-1); border-color: var(--glass-border-strong); }
+.tgl.is-on {
+  background: rgba(62, 207, 142, 0.15);
+  border-color: rgba(62, 207, 142, 0.4);
+  color: var(--success);
+}
+
+.seg {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--r-sm);
+  background: rgba(0, 0, 0, 0.26);
+  border: 1px solid var(--glass-border);
+}
+.seg-btn {
+  flex: 1;
+  padding: 5px 6px;
+  border-radius: var(--r-xs);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-3);
+  transition: all var(--dur-fast) var(--ease-out);
+}
+.seg-btn:hover { color: var(--text-1); }
+.seg-btn.is-active {
+  background: rgba(240, 199, 102, 0.18);
+  color: var(--amber-2);
+}
+
+.chip {
+  padding: 4px 11px;
+  border-radius: var(--r-full);
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  color: var(--text-3);
+  transition: all var(--dur-fast) var(--ease-out);
+}
+.chip:hover { color: var(--text-1); border-color: var(--glass-border-strong); }
+.chip.is-active {
+  background: rgba(240, 199, 102, 0.16);
+  border-color: rgba(240, 199, 102, 0.42);
+  color: var(--amber-2);
+}
+.chip-row {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+/* ── 配置 ───────────────────────────────────────────────────────────────── */
+.pr-config {
+  padding: var(--sp-4) var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+.pcfg-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+.pcfg-row > .tiny {
+  min-width: 34px;
+  color: var(--text-4);
+}
+
+/* ── 麦克风面板 ─────────────────────────────────────────────────────────── */
+.mic-panel {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.2fr;
+  gap: var(--sp-5);
+  padding: var(--sp-4) var(--sp-5);
+  align-items: center;
+}
+.mp-label {
+  color: var(--text-4);
+  margin-bottom: 5px;
+  letter-spacing: 0.05em;
+}
+.mp-meter {
+  height: 10px;
+  border-radius: var(--r-full);
+  background: rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+.mp-meter-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--success), var(--amber-3), var(--danger));
+  transition: width 60ms linear;
+}
+.mp-value {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-1);
+}
+.mp-note-value {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--amber-2);
+  font-family: var(--font-mono);
+  line-height: 1.2;
+}
+.mp-cents {
+  font-size: 11.5px;
+  color: var(--text-4);
+  margin-top: 2px;
+}
+.mp-cents.is-good { color: var(--success); }
+.mp-cents.is-ok { color: var(--warning); }
+.mp-cents.is-bad { color: var(--danger); }
+
+/* ── 评测面板 ───────────────────────────────────────────────────────────── */
+.eval-panel {
+  padding: var(--sp-5);
+}
+.ep-head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-4);
+}
+.ep-target {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  border-radius: var(--r-md);
+  background: rgba(240, 199, 102, 0.08);
+  border: 1px solid rgba(240, 199, 102, 0.24);
+  margin-bottom: var(--sp-3);
+}
+.ep-target-value {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--amber-2);
+  font-family: var(--font-mono);
+}
+.ep-progress {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.ep-dot {
+  width: 22px;
+  height: 6px;
+  border-radius: var(--r-full);
+  background: rgba(255, 255, 255, 0.1);
+  transition: all var(--dur-fast) var(--ease-out);
+}
+.ep-dot.is-right { background: var(--success); }
+.ep-dot.is-wrong { background: var(--danger); }
+.ep-dot.is-current {
+  background: var(--amber-3);
+  box-shadow: 0 0 8px rgba(240, 199, 102, 0.6);
+  transform: scaleY(1.6);
+}
+.ep-result {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+}
+.ep-score {
+  font-size: 34px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── 键盘区 ─────────────────────────────────────────────────────────────── */
+.pr-keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+.prk-head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  color: var(--text-4);
+}
+
+/* ── 最近弹奏 ───────────────────────────────────────────────────────────── */
+.recent {
+  padding: var(--sp-3) var(--sp-4);
+}
+.rc-label {
+  color: var(--text-4);
+  margin-bottom: 6px;
+}
+.rc-list {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.rc-note {
+  padding: 3px 9px;
+  border-radius: var(--r-xs);
+  background: rgba(255, 255, 255, 0.05);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-2);
+}
+
+/* ── 响应式 ─────────────────────────────────────────────────────────────── */
+@media (max-width: 800px) {
+  .mic-panel { grid-template-columns: 1fr; gap: var(--sp-3); }
+  .pr-toolbar { grid-template-columns: 1fr 1fr; }
+  .pr-modes { flex-wrap: wrap; }
+}
+@media (max-width: 560px) {
+  .pr-toolbar { grid-template-columns: 1fr; }
+}

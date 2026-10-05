@@ -1,0 +1,68 @@
+<!-- Copyright (c) 2026 LIHUA. All rights reserved. 版权所有 (C) 2026 LIHUA，保留所有权利。 -->
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 360" width="680" height="360" font-family="'PingFang SC','Microsoft YaHei','Hiragino Sans GB',sans-serif">
+  <defs>
+    <marker id="fig01-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5C6B77"/>
+    </marker>
+    <marker id="fig01-arO" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#B4552D"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="360" fill="#FFFFFF"/>
+  <rect x="10" y="10" width="660" height="340" fill="#FFFDF9" stroke="#D8D3C8" stroke-width="1"/>
+
+  <!-- 图头 -->
+  <text x="28" y="36" font-size="15" font-weight="700" fill="#1B3A5C">图 V-01　Vibe Coding 的能力分工</text>
+  <text x="652" y="36" font-size="12" fill="#8A8578" text-anchor="end">概念图解 · 示意非等比</text>
+  <line x1="10" y1="52" x2="670" y2="52" stroke="#D8D3C8" stroke-width="1"/>
+
+  <!-- 上：AI 可独立完成 -->
+  <rect x="30" y="66" width="620" height="132" rx="6" fill="#EEF3F8" stroke="#B8CCDD" stroke-width="1"/>
+  <text x="46" y="88" font-size="13" font-weight="700" fill="#1B3A5C">AI 可独立完成</text>
+  <rect x="110" y="108" width="128" height="64" rx="4" fill="#FFFFFF" stroke="#B8CCDD" stroke-width="1"/>
+  <text x="110" y="134" font-size="13" fill="#33322E" text-anchor="middle">自然语言</text>
+  <text x="110" y="152" font-size="13" fill="#33322E" text-anchor="middle">需求描述</text>
+  <line x1="238" y1="140" x2="258" y2="140" stroke="#5C6B77" stroke-width="1.4" marker-end="url(#fig01-ar)"/>
+  <rect x="264" y="104" width="144" height="72" rx="4" fill="#1B3A5C" stroke="#1B3A5C" stroke-width="1"/>
+  <text x="336" y="132" font-size="15" font-weight="700" fill="#FFFFFF" text-anchor="middle">LLM 代码合成</text>
+  <text x="336" y="152" font-size="11" fill="#C9D6E4" text-anchor="middle">（基于大模型的合成器）</text>
+  <line x1="412" y1="140" x2="432" y2="140" stroke="#5C6B77" stroke-width="1.4" marker-end="url(#fig01-ar)"/>
+  <rect x="442" y="108" width="128" height="64" rx="4" fill="#FFFFFF" stroke="#B8CCDD" stroke-width="1"/>
+  <text x="442" y="134" font-size="13" fill="#33322E" text-anchor="middle">可运行的</text>
+  <text x="442" y="152" font-size="13" fill="#33322E" text-anchor="middle">代码</text>
+  <text x="340" y="186" font-size="12" fill="#5C6B77" text-anchor="middle">典型产出：原型开发 · 简单应用 · 一次性可用 Demo</text>
+
+  <!-- 分界 -->
+  <line x1="30" y1="220" x2="650" y2="220" stroke="#E0C9A6" stroke-width="1.2" stroke-dasharray="7 5"/>
+  <line x1="340" y1="206" x2="340" y2="216" stroke="#B4552D" stroke-width="2" marker-end="url(#fig01-arO)"/>
+  <text x="356" y="216" font-size="12" font-weight="700" fill="#B4552D">生成 ≠ 可用</text>
+
+  <!-- 下：必须由人承担 -->
+  <rect x="30" y="232" width="620" height="90" rx="6" fill="#F5EFE3" stroke="#E0C9A6" stroke-width="1"/>
+  <text x="46" y="254" font-size="13" font-weight="700" fill="#B4552D">必须由人承担</text>
+  <rect x="44" y="262" width="92" height="42" rx="4" fill="#FFFFFF" stroke="#D8B98E" stroke-width="1"/>
+  <text x="90" y="284" font-size="12" fill="#33322E" text-anchor="middle">系统建模</text>
+  <text x="90" y="299" font-size="10" fill="#8A8578" text-anchor="middle">structure</text>
+  <rect x="144" y="262" width="92" height="42" rx="4" fill="#FFFFFF" stroke="#D8B98E" stroke-width="1"/>
+  <text x="190" y="284" font-size="12" fill="#33322E" text-anchor="middle">约束识别</text>
+  <text x="190" y="299" font-size="10" fill="#8A8578" text-anchor="middle">invariant</text>
+  <rect x="244" y="262" width="92" height="42" rx="4" fill="#FFFFFF" stroke="#D8B98E" stroke-width="1"/>
+  <text x="290" y="284" font-size="12" fill="#33322E" text-anchor="middle">风险预判</text>
+  <text x="290" y="299" font-size="10" fill="#8A8578" text-anchor="middle">failure</text>
+  <rect x="344" y="262" width="92" height="42" rx="4" fill="#FFFFFF" stroke="#D8B98E" stroke-width="1"/>
+  <text x="390" y="284" font-size="12" fill="#33322E" text-anchor="middle">底层原理</text>
+  <text x="390" y="299" font-size="10" fill="#8A8578" text-anchor="middle">fundamental</text>
+  <rect x="444" y="262" width="92" height="42" rx="4" fill="#FFFFFF" stroke="#D8B98E" stroke-width="1"/>
+  <text x="490" y="284" font-size="12" fill="#33322E" text-anchor="middle">权衡取舍</text>
+  <text x="490" y="299" font-size="10" fill="#8A8578" text-anchor="middle">trade-off</text>
+  <rect x="544" y="262" width="92" height="42" rx="4" fill="#FFFFFF" stroke="#D8B98E" stroke-width="1"/>
+  <text x="590" y="284" font-size="12" fill="#33322E" text-anchor="middle">故障修复</text>
+  <text x="590" y="299" font-size="10" fill="#8A8578" text-anchor="middle">debug</text>
+
+  <!-- 图注 + 标题栏 -->
+  <text x="28" y="340" font-size="11" fill="#8A8578">注：上半区语言可覆盖，下半区只能靠工程训练。</text>
+  <rect x="452" y="324" width="218" height="26" fill="#FAF7F2" stroke="#D8D3C8" stroke-width="1"/>
+  <text x="561" y="341" font-size="11" fill="#8A8578" text-anchor="middle">V-01 · 概念图解（非等比） · 2026-10</text>
+</svg>

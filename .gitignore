@@ -1,0 +1,12 @@
+node_modules/
+dist/
+server/data/
+*.local
+.DS_Store
+_env*.txt
+screenshots/
+_edgeprof*/
+_geom_test.txt
+.workbuddy/
+_tmp_*.py
+*.log
