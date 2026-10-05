@@ -10,3 +10,6 @@ _geom_test.txt
 .workbuddy/
 _tmp_*.py
 *.log
+
+# 公众号排版成品（与 PianoStudio 无关，已从版本库移除；本地副本保留在 vibe-coding-wechat/）
+vibe-coding-wechat/
